@@ -1,0 +1,28 @@
+function findFirstNonRepeatedChar(str) {
+  const charCount = {};
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (charCount[char] === 1) {
+      return char;
+    }
+  }
+
+  return null;
+}
+
+const inputString = "programming";
+const firstNonRepeatedChar = findFirstNonRepeatedChar(inputString);
+
+if (firstNonRepeatedChar !== null) {
+  console.log(
+    `The first non-repeated character in "${inputString}" is: ${firstNonRepeatedChar}`
+  );
+} else {
+  console.log(`There are no non-repeated characters in "${inputString}"`);
+}
